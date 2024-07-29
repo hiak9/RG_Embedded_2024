@@ -3,7 +3,7 @@
 <title>Static Call Graph - [RG2024_embedded\RG2024_embedded.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image RG2024_embedded\RG2024_embedded.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Mon Jul 29 19:18:40 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Mon Jul 29 22:18:37 2024
 <BR><P>
 <H3>Maximum Stack Usage =        204 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1360,10 +1360,10 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> communication.o(i.__sti___17_Communication_cpp_1b3ccd2f)
 </UL>
 <P><STRONG><a name="[c8]"></a>Class_CustomCOM::DataProcess(unsigned char)</STRONG> (Thumb, 146 bytes, Stack size 16 bytes, communication.o(i._ZN15Class_CustomCOM11DataProcessEh))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = Class_CustomCOM::DataProcess(unsigned char) &rArr; Calculate_CRC8(unsigned char*, unsigned)
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = Class_CustomCOM::DataProcess(unsigned char) &rArr; __aeabi_memcpy4
 </UL>
-<BR>[Calls]<UL><LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Calculate_CRC8(unsigned char*, unsigned)
-<LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
+<BR>[Calls]<UL><LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
+<LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Calculate_CRC8(unsigned char*, unsigned)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_RxEventCallback
 </UL>
@@ -1506,8 +1506,8 @@ Local Symbols
 <P><STRONG><a name="[cd]"></a>[local to stm32f4xx_hal_uart_c]::UART_Receive_IT(__UART_HandleTypeDef*)</STRONG> (Thumb, 252 bytes, Stack size 24 bytes, stm32f4xx_hal_uart.o(i._ZN42_INTERNAL_20_stm32f4xx_hal_uart_c_d497114f15UART_Receive_ITEP20__UART_HandleTypeDef))
 <BR><BR>[Stack]<UL><LI>Max Depth = 156<LI>Call Chain = [local to stm32f4xx_hal_uart_c]::UART_Receive_IT(__UART_HandleTypeDef*) &rArr; HAL_UARTEx_RxEventCallback &rArr; UART_ReceiveToIdle_DMA(Struct_UART_Manage_Object*) &rArr; HAL_UARTEx_ReceiveToIdle_DMA &rArr; UART_Start_Receive_DMA &rArr; HAL_DMA_Start_IT &rArr; [local to stm32f4xx_hal_dma_c]::DMA_SetConfig(__DMA_HandleTypeDef*, unsigned, unsigned, unsigned)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_RxCpltCallback
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_RxEventCallback
+<BR>[Calls]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_RxEventCallback
+<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_RxCpltCallback
 </UL>
 <BR>[Called By]<UL><LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_IRQHandler
 </UL>
@@ -1519,8 +1519,8 @@ Local Symbols
 <P><STRONG><a name="[6b]"></a>[local to stm32f4xx_hal_uart_c]::UART_DMARxHalfCplt(__DMA_HandleTypeDef*)</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, stm32f4xx_hal_uart.o(i._ZN42_INTERNAL_20_stm32f4xx_hal_uart_c_d497114f18UART_DMARxHalfCpltEP19__DMA_HandleTypeDef))
 <BR><BR>[Stack]<UL><LI>Max Depth = 148<LI>Call Chain = [local to stm32f4xx_hal_uart_c]::UART_DMARxHalfCplt(__DMA_HandleTypeDef*) &rArr; HAL_UARTEx_RxEventCallback &rArr; UART_ReceiveToIdle_DMA(Struct_UART_Manage_Object*) &rArr; HAL_UARTEx_ReceiveToIdle_DMA &rArr; UART_Start_Receive_DMA &rArr; HAL_DMA_Start_IT &rArr; [local to stm32f4xx_hal_dma_c]::DMA_SetConfig(__DMA_HandleTypeDef*, unsigned, unsigned, unsigned)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_RxHalfCpltCallback
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_RxEventCallback
+<BR>[Calls]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_RxEventCallback
+<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_RxHalfCpltCallback
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> stm32f4xx_hal_uart.o(i.UART_Start_Receive_DMA)
 </UL>
@@ -1536,8 +1536,8 @@ Local Symbols
 <P><STRONG><a name="[6a]"></a>[local to stm32f4xx_hal_uart_c]::UART_DMAReceiveCplt(__DMA_HandleTypeDef*)</STRONG> (Thumb, 180 bytes, Stack size 16 bytes, stm32f4xx_hal_uart.o(i._ZN42_INTERNAL_20_stm32f4xx_hal_uart_c_d497114f19UART_DMAReceiveCpltEP19__DMA_HandleTypeDef))
 <BR><BR>[Stack]<UL><LI>Max Depth = 148<LI>Call Chain = [local to stm32f4xx_hal_uart_c]::UART_DMAReceiveCplt(__DMA_HandleTypeDef*) &rArr; HAL_UARTEx_RxEventCallback &rArr; UART_ReceiveToIdle_DMA(Struct_UART_Manage_Object*) &rArr; HAL_UARTEx_ReceiveToIdle_DMA &rArr; UART_Start_Receive_DMA &rArr; HAL_DMA_Start_IT &rArr; [local to stm32f4xx_hal_dma_c]::DMA_SetConfig(__DMA_HandleTypeDef*, unsigned, unsigned, unsigned)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_RxCpltCallback
-<LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_RxEventCallback
+<BR>[Calls]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UARTEx_RxEventCallback
+<LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_RxCpltCallback
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> stm32f4xx_hal_uart.o(i.UART_Start_Receive_DMA)
 </UL>

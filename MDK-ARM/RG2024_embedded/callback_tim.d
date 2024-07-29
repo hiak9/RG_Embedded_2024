@@ -51,3 +51,4 @@ rg2024_embedded\callback_tim.o: ../User/2-FML/Inc/Communication.h
 rg2024_embedded\callback_tim.o: ../User/4-HAL/Inc/User_Uart.h
 rg2024_embedded\callback_tim.o: ../Core/Inc/usart.h
 rg2024_embedded\callback_tim.o: ../User/0-MIL/Inc/Crc.h
+rg2024_embedded\callback_tim.o: ../User/3-HDL/Inc/Motor_Fir.h

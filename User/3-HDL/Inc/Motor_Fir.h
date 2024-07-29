@@ -48,9 +48,15 @@ protected:
 	uint16_t Cycle_Counter = 0U;								/*!< 电机控制周期计数器 */
 	Enum_Motor_Fir_Status control_mode = Motor_Fir_DISABLE;		/*!< 电机当前状态*/
 
+	Enum_Motor_Fir_Status Motor_Fir_Status = Motor_Fir_DISABLE;
 };
 
+/* 变量声明 ------------------------------------------------------------------------------------------------------------*/
+extern Class_Motor_Fir friction_gear_up[2];
+extern Class_Motor_Fir friction_gear_down[2];
 
+
+/* 函数声明 ------------------------------------------------------------------------------------------------------------*/
 void Class_Motor_Fir::Set_Speed(uint16_t __PWM_CCR)
 {
 	/*!< 判断占空比大小，避免超出范围*/
