@@ -30,6 +30,7 @@
 "rg2024_embedded\user_delay.o"
 "rg2024_embedded\user_uart.o"
 "rg2024_embedded\motor.o"
+"rg2024_embedded\motor_fir.o"
 "rg2024_embedded\chassis.o"
 "rg2024_embedded\communication.o"
 "rg2024_embedded\callback_can.o"
