@@ -194,6 +194,80 @@ void Class_Motor_BDC::Control()
     }
 }
 
+
+/************************************************************************************************************************
+ * @brief   BDC电机测试控制函数（需在系统心跳定时器更新中断中执行）
+ ***********************************************************************************************************************/
+void Class_Motor_BDC::Control_test()
+{
+    /* 判断是否到达控制周期 */
+    if (this->Cycle_Counter < this->Control_Cycle - 1)
+    {
+        /* 未到达控制周期 */
+        this->Cycle_Counter += 1;
+    }
+    else
+    {
+        /* 到达控制周期，进行电机控制 */
+        this->Cycle_Counter = 0;
+
+        /* 判断电机当前状态 */
+        if (this->Motor_State == Motor_Suspend)
+        {   
+            /* 速度清零 */
+            this->Set_Omega = 0.0f;
+            this->Target_Omega = 0.0f;
+            this->Out_Omega = 0.0f;
+
+            /* PID积分项归零 */
+            this->PID_Omega.Set_Integral_Error(0.0f);
+
+            /* 方向引脚输出悬空信号 */
+            HAL_GPIO_WritePin(this->GPIOx_Dir[0], this->GPIO_Pin_Dir[0], GPIO_PIN_SET);
+            HAL_GPIO_WritePin(this->GPIOx_Dir[1], this->GPIO_Pin_Dir[1], GPIO_PIN_SET);
+        }
+        else if (this->Motor_State == Motor_Brake)
+        {
+            /* 速度清零 */
+            this->Set_Omega = 0.0f;
+            this->Target_Omega = 0.0f;
+            this->Out_Omega = 0.0f;
+
+            /* PID积分项归零 */
+            this->PID_Omega.Set_Integral_Error(0.0f);
+
+            /* 方向引脚输出刹车信号 */
+            HAL_GPIO_WritePin(this->GPIOx_Dir[0], this->GPIO_Pin_Dir[0], GPIO_PIN_RESET);
+            HAL_GPIO_WritePin(this->GPIOx_Dir[1], this->GPIO_Pin_Dir[1], GPIO_PIN_RESET);
+        }
+        else if (this->Motor_State == Motor_Run)
+        {   
+            
+            
+            /* 正反转控制，将输出值映射到PWM输出比较寄存器上 */
+            if (this->Set_Omega > 0)
+            {
+                /* 输出比较寄存器赋值 */
+                __HAL_TIM_SET_COMPARE(this->TIM_PWM, this->PWM_Channel,
+                                      (uint32_t)(this->Set_Omega / this->Omega_MAX * this->TIM_PWM->Init.Period));
+                /* 方向引脚输出正转信号 */
+                HAL_GPIO_WritePin(this->GPIOx_Dir[0], this->GPIO_Pin_Dir[0], GPIO_PIN_RESET);
+                HAL_GPIO_WritePin(this->GPIOx_Dir[1], this->GPIO_Pin_Dir[1], GPIO_PIN_SET);
+            }
+            else
+            {
+                /* 输出比较寄存器赋值 */
+                __HAL_TIM_SET_COMPARE(this->TIM_PWM, this->PWM_Channel,
+                                      (uint32_t)(-this->Set_Omega / this->Omega_MAX * this->TIM_PWM->Init.Period));
+                /* 方向引脚输出反转信号 */
+                HAL_GPIO_WritePin(this->GPIOx_Dir[0], this->GPIO_Pin_Dir[0], GPIO_PIN_SET);
+                HAL_GPIO_WritePin(this->GPIOx_Dir[1], this->GPIO_Pin_Dir[1], GPIO_PIN_RESET);
+            }
+        }
+    }
+}
+
+
 /*****************************************************************************************************
  * @brief   步进电机初始化函数
 *****************************************************************************************************/

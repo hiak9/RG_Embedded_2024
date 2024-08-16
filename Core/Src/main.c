@@ -27,6 +27,11 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+
+#include "User_Main.h"
+
+
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -101,8 +106,12 @@ int main(void)
   MX_USART1_UART_Init();
   MX_USART3_UART_Init();
   MX_TIM6_Init();
-  MX_TIM12_Init();
+  MX_TIM10_Init();
+  MX_TIM11_Init();
   /* USER CODE BEGIN 2 */
+
+
+  User_setup();
 
   /* USER CODE END 2 */
 
@@ -110,6 +119,9 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+
+    User_loop();
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

@@ -26,10 +26,10 @@ void Class_Chassis_Macnum::Init(float __Wheel_Omega_MAX, uint16_t __Control_Cycl
     this->Control_Cycle = __Control_Cycle;
 
     /* 电机初始化 */
-    this->Motor_Wheel[0].Init(&htim2, &htim8, TIM_CHANNEL_1, GPIOC, GPIOA, GPIO_PIN_12, GPIO_PIN_8 , 20.0f, 14.0f);
-    this->Motor_Wheel[1].Init(&htim3, &htim8, TIM_CHANNEL_2, GPIOD, GPIOD, GPIO_PIN_10, GPIO_PIN_12, 20.0f, 14.0f);
-    this->Motor_Wheel[2].Init(&htim4, &htim8, TIM_CHANNEL_3, GPIOC, GPIOB, GPIO_PIN_0 , GPIO_PIN_14, 20.0f, 14.0f);
-    this->Motor_Wheel[3].Init(&htim5, &htim8, TIM_CHANNEL_4, GPIOB, GPIOB, GPIO_PIN_13, GPIO_PIN_12, 20.0f, 14.0f);
+    this->Motor_Wheel[0].Init(&htim2, &htim8, TIM_CHANNEL_1, GPIOC, GPIOC, GPIO_PIN_1, GPIO_PIN_3 , 20.0f);
+    this->Motor_Wheel[1].Init(&htim3, &htim8, TIM_CHANNEL_2, GPIOG, GPIOG, GPIO_PIN_12, GPIO_PIN_14, 20.0f);
+    this->Motor_Wheel[2].Init(&htim4, &htim8, TIM_CHANNEL_3, GPIOG, GPIOG, GPIO_PIN_11 , GPIO_PIN_13, 20.0f);
+    this->Motor_Wheel[3].Init(&htim5, &htim8, TIM_CHANNEL_4, GPIOC, GPIOC, GPIO_PIN_0, GPIO_PIN_2, 20.0f);
 
     for (uint8_t i = 0; i < 4; i++)
     {
@@ -120,3 +120,4 @@ void Class_Chassis_Macnum::Control()
         }
     }
 }
+

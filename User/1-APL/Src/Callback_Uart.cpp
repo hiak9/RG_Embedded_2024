@@ -22,8 +22,9 @@ void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef * huart, uint16_t Size)
     if (huart->Instance == huart3.Instance)
     {
         /* 鲁班猫上位机串口数据处理 */
-        COM_LuBanCat.DataProcess(Size);
-
+        // COM_LuBanCat.DataProcess(Size);
+        
+        
         /* 开启新一次串口接收（DMA-IDLE） */
         UART_ReceiveToIdle_DMA(&UART3_Manage_Object);
     }

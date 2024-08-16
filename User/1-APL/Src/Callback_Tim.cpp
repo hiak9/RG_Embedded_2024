@@ -32,10 +32,16 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef * htim)
         Committee_Chariot.Control();
 
         /* 电机闭环控制 */
-        Committee_Chariot.Motor_Wheel[0].Control();
+       /*  Committee_Chariot.Motor_Wheel[0].Control();
         Committee_Chariot.Motor_Wheel[1].Control();
         Committee_Chariot.Motor_Wheel[2].Control();
-        Committee_Chariot.Motor_Wheel[3].Control();
+        Committee_Chariot.Motor_Wheel[3].Control(); */
+
+        Committee_Chariot.Motor_Wheel[0].Control_test();
+        Committee_Chariot.Motor_Wheel[1].Control_test();
+        Committee_Chariot.Motor_Wheel[2].Control_test();
+        Committee_Chariot.Motor_Wheel[3].Control_test();
+
 
         /* 摩擦轮闭环控制 */
 //        frictiongear[0].Control();

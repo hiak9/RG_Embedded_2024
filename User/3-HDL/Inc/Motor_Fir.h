@@ -29,11 +29,12 @@ class Class_Motor_Fir
 {
 public:
 	void Init(TIM_HandleTypeDef *__TIM_PWM, uint32_t __PWM_Channel, uint32_t __PWM_CCR = 0,
-				uint16_t __Duty_Circle_MAX = 1900, uint16_t __Duty_Circle_MIN = 1100, 
+				uint16_t __Duty_Circle_MAX = 1900U, uint16_t __Duty_Circle_MIN = 1100U, 
 				uint16_t __Control_Cycle = 50U);
 	void Control();
 
 	inline void Set_Speed(uint16_t __PWM_CCR);
+	inline void test_Set_Speed(uint16_t __PWM_CCR);
 protected:
 
 	float Speed_MAX = 43512;									/*!< 电机最大速度（rad/s）*/
@@ -57,6 +58,12 @@ extern Class_Motor_Fir friction_gear_down[2];
 
 
 /* 函数声明 ------------------------------------------------------------------------------------------------------------*/
+
+/************************************************************************************************************************
+ * @brief   摩擦轮电机设置速度
+ *
+ * @param   __PWM_CCR           PWM波占空比
+ ***********************************************************************************************************************/
 void Class_Motor_Fir::Set_Speed(uint16_t __PWM_CCR)
 {
 	/*!< 判断占空比大小，避免超出范围*/

@@ -62,6 +62,9 @@ public:
               GPIO_TypeDef * __GPIOx_Dir_A, GPIO_TypeDef * __GPIOx_Dir_B, uint32_t __GPIO_Pin_Dir_A, uint32_t __GPIO_Pin_Dir_B,
               float __Omega_MAX = 26.0f, float __Reduction_Ratio = 27.0f, uint16_t __Encoder_Lines = 13U, uint16_t __Control_Cycle = 50U);
     void Control();
+
+
+    void Control_test();
     
     inline float MotionSet(float __Set_Omega);
     inline void StopSet(Enum_MotorState_BDC __Stop_State);
@@ -249,3 +252,5 @@ float Class_Motor_Step::AngleGet()
 }
 
 #endif  /* HDL_Motor.h */
+
+

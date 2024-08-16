@@ -37,3 +37,4 @@ rg2024_embedded\main.o: ../Core/Inc/dma.h
 rg2024_embedded\main.o: ../Core/Inc/tim.h
 rg2024_embedded\main.o: ../Core/Inc/usart.h
 rg2024_embedded\main.o: ../Core/Inc/gpio.h
+rg2024_embedded\main.o: ../User/1-APL/Inc/User_Main.h

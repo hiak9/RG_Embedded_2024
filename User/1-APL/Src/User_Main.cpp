@@ -17,6 +17,7 @@
 #include "User_Can.h"
 #include "User_Delay.h"
 #include "tim.h"
+#include "User_Math.h"
 
 /************************************************************************************************************************
  * @brief   初始化函数封装
@@ -56,4 +57,15 @@ void User_loop(void)
 {
     // frictiongear[0].Set_Target_Omega(-20.0f);
     // frictiongear[1].Set_Target_Omega(20.0f);
+    Committee_Chariot.Enable();
+    Committee_Chariot.Set_Motion(0.1, 0, 0);
+    HAL_Delay(1000);
+    Committee_Chariot.Set_Motion(0, 0.1, 0);
+    HAL_Delay(1000);
+    Committee_Chariot.Set_Motion(-0.1, 0, 0);
+    HAL_Delay(1000);
+    Committee_Chariot.Set_Motion(0, -0.1, 0);
+    HAL_Delay(1000);
+    Committee_Chariot.Set_Motion(0, 0, 0.1f * PI);
+    HAL_Delay(1000);
 }

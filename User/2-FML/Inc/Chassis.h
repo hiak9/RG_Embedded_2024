@@ -47,11 +47,12 @@ public:
     inline void Disable();
     inline void Set_Motion(float __Velocity_X, float __Velocity_Y, float __Omega);
     inline void Set_Stop(Enum_ChassisState __Stop_State);
+
 protected:
     /* 常量 */
-    const float Wheel_Radius = 0.0635f;     /*!< 底盘轮子半径 (m) */
-    const float Wheel_Spacing = 0.8f;       /*!< 底盘轮间距（左右）(m) */
-    const float Wheel_Base = 0.8f;          /*!< 底盘轴距（前后）(m) */
+    const float Wheel_Radius = 0.1f;     /*!< 底盘轮子半径 (m) */
+    const float Wheel_Spacing = 0.43f;       /*!< 底盘轮间距（左右）(m) */
+    const float Wheel_Base = 0.3f;          /*!< 底盘轴距（前后）(m) */
     float Wheel_Omega_MAX;                  /*!< 轮子最大角速度 (rad/s) */
     uint16_t Control_Cycle;                 /*!< 底盘控制周期 (控制周期 = Control_Cycle * 系统心跳周期) */
 

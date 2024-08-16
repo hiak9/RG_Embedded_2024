@@ -37,6 +37,8 @@ void Class_Motor_Fir::Init(TIM_HandleTypeDef *__TIM_PWM, uint32_t __PWM_Channel,
     /*定时器启动*/
     HAL_TIM_PWM_Start(this->TIM_PWM, this->PWM_Channel);
 }
+
+
  void Class_Motor_Fir::Control()
  {
     if (this->Cycle_Counter < this->Control_Cycle - 1)
