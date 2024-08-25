@@ -242,8 +242,6 @@ void Class_Motor_BDC::Control_test()
         }
         else if (this->Motor_State == Motor_Run)
         {   
-            
-            
             /* 正反转控制，将输出值映射到PWM输出比较寄存器上 */
             if (this->Set_Omega > 0)
             {

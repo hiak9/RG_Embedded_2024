@@ -2,7 +2,11 @@
 Build target 'RG2024_embedded'
 compiling User_Main.cpp...
 linking...
-Program Size: Code=19288 RO-data=464 RW-data=1100 ZI-data=3828  
-FromELF: creating hex file...
-"RG2024_embedded\RG2024_embedded.axf" - 0 Error(s), 0 Warning(s).
+RG2024_embedded\RG2024_embedded.axf: Error: L6218E: Undefined symbol friction_gear_down (referred from callback_tim.o).
+RG2024_embedded\RG2024_embedded.axf: Error: L6218E: Undefined symbol friction_gear_up (referred from callback_tim.o).
+Not enough information to list image symbols.
+Not enough information to list load addresses in the image map.
+Finished: 2 information, 0 warning and 2 error messages.
+"RG2024_embedded\RG2024_embedded.axf" - 2 Error(s), 0 Warning(s).
+Target not created.
 Build Time Elapsed:  00:00:02

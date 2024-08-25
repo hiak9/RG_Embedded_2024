@@ -18,6 +18,7 @@
 #include "User_Delay.h"
 #include "tim.h"
 #include "User_Math.h"
+#include "Motor_Fir.h"
 
 /************************************************************************************************************************
  * @brief   初始化函数封装
@@ -40,6 +41,13 @@ void User_setup(void)
 //    frictiongear[0].Init(&CAN1_Manage_Object, DJI_Motor_ID_0x201, DJI_Motor_Control_Method_OMEGA);
 //    frictiongear[1].Init(&CAN1_Manage_Object, DJI_Motor_ID_0x205, DJI_Motor_Control_Method_OMEGA);
 
+    friction_gear_up[0].Init(&htim8, TIM_CHANNEL_1);
+    friction_gear_up[1].Init(&htim9, TIM_CHANNEL_2);
+    
+    friction_gear_down[0].Init(&htim10, TIM_CHANNEL_1);
+    friction_gear_down[1].Init(&htim11, TIM_CHANNEL_1);
+
+
     /* 麦轮底盘初始化 */
     Committee_Chariot.Init();
 
@@ -57,7 +65,6 @@ void User_loop(void)
 {
     // frictiongear[0].Set_Target_Omega(-20.0f);
     // frictiongear[1].Set_Target_Omega(20.0f);
-    Committee_Chariot.Enable();
     Committee_Chariot.Set_Motion(0.1, 0, 0);
     HAL_Delay(1000);
     Committee_Chariot.Set_Motion(0, 0.1, 0);
@@ -67,5 +74,9 @@ void User_loop(void)
     Committee_Chariot.Set_Motion(0, -0.1, 0);
     HAL_Delay(1000);
     Committee_Chariot.Set_Motion(0, 0, 0.1f * PI);
+    HAL_Delay(1000);
+
+    friction_gear_down[0].Set_Speed(1200);
+    friction_gear_down[1].Set_Speed(1200);
     HAL_Delay(1000);
 }

@@ -54,3 +54,4 @@ rg2024_embedded\user_main.o: ../User/0-MIL/Inc/Crc.h
 rg2024_embedded\user_main.o: ../User/3-HDL/Inc/Board.h
 rg2024_embedded\user_main.o: ../User/4-HAL/Inc/User_Can.h
 rg2024_embedded\user_main.o: ../Core/Inc/can.h
+rg2024_embedded\user_main.o: ../User/3-HDL/Inc/Motor_Fir.h

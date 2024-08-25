@@ -47,9 +47,10 @@ protected:
 	uint32_t PWM_Channel;										/*!< TIM_PWM通道*/
 	uint16_t Control_Cycle;    									/*!< 电机控制周期 (控制周期 = Control_Cycle * 系统心跳周期) */
 	uint16_t Cycle_Counter = 0U;								/*!< 电机控制周期计数器 */
-	Enum_Motor_Fir_Status control_mode = Motor_Fir_DISABLE;		/*!< 电机当前状态*/
+	Enum_Motor_Fir_Status Motor_Fir_Status 
+										= Motor_Fir_DISABLE;	/*!< 电机当前状态*/
 
-	Enum_Motor_Fir_Status Motor_Fir_Status = Motor_Fir_DISABLE;
+	
 };
 
 /* 变量声明 ------------------------------------------------------------------------------------------------------------*/
@@ -66,6 +67,10 @@ extern Class_Motor_Fir friction_gear_down[2];
  ***********************************************************************************************************************/
 void Class_Motor_Fir::Set_Speed(uint16_t __PWM_CCR)
 {
+	if(this->Motor_Fir_Status != Motor_Fir_ENABLE)
+	{
+		this->Motor_Fir_Status = Motor_Fir_ENABLE;
+	}
 	/*!< 判断占空比大小，避免超出范围*/
 	if(__PWM_CCR < this->Duty_Circle_MIN){
 		this->PWM_CCR = this->Duty_Circle_MIN;

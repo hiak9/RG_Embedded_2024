@@ -8,7 +8,8 @@
 #include "Motor_Fir.h"
 
 /* 全局变量创建 --------------------------------------------------------------------------------------------------------*/
-
+Class_Motor_Fir friction_gear_up[2];
+Class_Motor_Fir friction_gear_down[2];
 
 /* 函数定义 ------------------------------------------------------------------------------------------------------------*/
 /************************************************************************************************************************
@@ -53,7 +54,11 @@ void Class_Motor_Fir::Init(TIM_HandleTypeDef *__TIM_PWM, uint32_t __PWM_Channel,
 
         if(this->Motor_Fir_Status == Motor_Fir_DISABLE)
         {
-            
+            __HAL_TIM_SET_COMPARE(this->TIM_PWM, this->PWM_Channel, 0);
+        }
+        else
+        {
+            __HAL_TIM_SET_COMPARE(this->TIM_PWM, this->PWM_Channel, this->PWM_CCR);
         }
     }
  }

@@ -27,6 +27,11 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef * htim)
         /* 摩擦轮离线检测，10Hz */
 //        frictiongear[0].AliveCheck(100);
 //        frictiongear[1].AliveCheck(100);
+        friction_gear_up[0].Control();
+        friction_gear_up[1].Control();
+        
+        friction_gear_down[0].Control();
+        friction_gear_down[1].Control();
 
         /* 底盘控制 */
         Committee_Chariot.Control();
